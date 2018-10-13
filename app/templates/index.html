@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', 'style.css') }}" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <title>Home - HHA ESchool</title>
+</head>
+<body>
+<div class="jumbo">
+    <img src="{{ url_for('static', 'img/crest.png') }}" />
+    <h1>Haas Hall Academy</h1>
+</div>
+{{ main|safe }}
+
+<script src="{{ url_for('static', 'script.js') }}"></script>
+
+</body>
+</html>
