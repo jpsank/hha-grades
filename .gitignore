@@ -1,6 +1,8 @@
 
 venv/
 
-*.xml
-*.iml
+.idea/
+.xml
+.iml
 
+.pyc
