@@ -11,6 +11,8 @@ def index():
         password = request.form.get('password')
         sc = scraper.Scraper(username, password)
         courseData = sc.get()
+        if len(courseData) == 0:
+            return render_template('login.html', message=u"Invalid username or password")
 
         mainHTML = u"<section id='main'>"
 
@@ -42,7 +44,7 @@ def index():
 
         return render_template('index.html', main=mainHTML)
     else:
-        return render_template('form.html')
+        return render_template('login.html')
 
 
 if __name__ == '__main__':

@@ -110,10 +110,7 @@ div.course .details:active {
 footer {
 	text-align: center;
 	margin-top: 200px;
-	font-size: .75em;
-}
-footer p {
-
+	font-size: .7em;
 }
 
 
@@ -143,3 +140,8 @@ footer p {
 }
 
 
+p.message {
+	font-size: .8em;
+	color: red;
+	margin: 0;
+}
