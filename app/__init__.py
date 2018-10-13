@@ -15,7 +15,7 @@ def index():
         mainHTML = u"<section id='main'>"
 
         for c in courseData:
-            grid = courseData[c]['grid'].decode("utf-8")
+            grid = courseData[c]['grid'].decode()
             average = courseData[c]['average']
 
             if average < 60:
