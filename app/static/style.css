@@ -74,6 +74,13 @@ div.course .details:active {
 	background-color: lightgrey;
 }
 
+div.course p.na {
+	font-size: 4em;
+	line-height: 0;
+	margin: 137px 0;
+	text-align: center;
+}
+
 .modal {
 	display: none;
 	position: fixed;

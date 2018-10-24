@@ -31,16 +31,21 @@ def index():
                     grade = u'B'
                 else:
                     grade = u'A'
-            else:
-                average = 'n/a'
-                grade = 'n/a'
 
-            courseHTML = u"<p class='name'>{}</p>".format(c) + \
-                         u"<p class='score'>{}%</p>".format(average) + \
-                         u"<p class='grade'>{}</p>".format(grade) + \
-                         u"<progress class='{}' value='{}' max='100'></progress>".format(grade, average) + \
-                         u"<button class='details'>Details</button>" + \
-                         u"<div class='modal'><button class='modal-close'>x</button><div class='content'>{}</div></div>".format(grid)
+                courseHTML = u"<p class='name'>{}</p>".format(c) + \
+                             u"<p class='score'>{}%</p>".format(average) + \
+                             u"<p class='grade'>{}</p>".format(grade) + \
+                             u"<progress class='{}' value='{}' max='100'></progress>".format(grade, average) + \
+                             u"<button class='details'>Details</button>" + \
+                             u"<div class='modal'><button class='modal-close'>x</button><div class='content'>{}</div></div>".format(grid)
+
+            else:
+                courseHTML = u"<p class='name'>{}</p>".format(c) + \
+                             u"<p class='na'>N/A</p>" + \
+                             u"<button class='details'>Details</button>" + \
+                             u"<div class='modal'><button class='modal-close'>x</button><div class='content'>{}</div></div>".format(grid)
+
+
 
             mainHTML += u"<div class='course'>{}</div>".format(courseHTML)
 
