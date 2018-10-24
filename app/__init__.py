@@ -20,16 +20,20 @@ def index():
             grid = courseData[c]['grid'].decode()
             average = courseData[c]['average']
 
-            if average < 60:
-                grade = u'F'
-            elif average < 70:
-                grade = u'D'
-            elif average < 80:
-                grade = u'C'
-            elif average < 90:
-                grade = u'B'
+            if average:
+                if average < 60:
+                    grade = u'F'
+                elif average < 70:
+                    grade = u'D'
+                elif average < 80:
+                    grade = u'C'
+                elif average < 90:
+                    grade = u'B'
+                else:
+                    grade = u'A'
             else:
-                grade = u'A'
+                average = 'n/a'
+                grade = 'n/a'
 
             courseHTML = u"<p class='name'>{}</p>".format(c) + \
                          u"<p class='score'>{}%</p>".format(average) + \

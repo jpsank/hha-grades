@@ -29,8 +29,11 @@ class Scraper:
 
             grid = course.select_one(".sg-content-grid")
 
-            courseData[name.text.strip().split('    ')[-1]] = {'average': float(average.text[15:-1]),
-                                                               'grid': grid}
+            nameTxt = name.text.strip().split('    ')[-1]
+            avgTxt = None if average.text == '' else float(average.text[15:-1])
+
+            courseData[nameTxt] = {'average': avgTxt,
+                                   'grid': grid}
 
         return courseData
 
