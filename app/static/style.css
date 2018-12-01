@@ -32,11 +32,16 @@ div.course p.name {
 	font-weight: bold;
 }
 div.course p.score {
+	font-size: 1.8em;
+	text-align: center;
+	margin: 20px 0;
+	border-top: 1px solid black;
+	border-bottom: 1px solid black;
 }
 div.course p.grade {
-	font-size: 10em;
+	font-size: 4em;
 	line-height: 0;
-	margin: 100px 0;
+    margin: 50px 0;
 	text-align: center;
 }
 
@@ -88,29 +93,29 @@ div.course p.na {
 	left: 0;
 	top: 0;
 	width: 100%;
-	height: 500px;
-	background-color: white;
+	background-color: #f3f3f6;
 }
 .modal .content {
 	overflow: auto;
-	height: inherit;
+	height: 500px;
+	max-height: 80vh;
 	width: inherit;
+	background-color: white;
 }
 .modal-close {
-	right: 0;
-	position: fixed;
-	background-color: red;
-	font-size: 1.5em;
+	background-color: transparent;
+	font-size: 1em;
 	line-height: 0;
-	vertical-align: center;
-	text-align: center;
-	height: 25px;
-	width: 25px;
-	padding: 0;
+	text-align: left;
+	height: 20px;
+	width: 100%;
+	border: none;
+	padding: 0 0 0 5px;
 	outline: none;
+	border-bottom: 1px solid #e5e5ea;
 }
 .modal-close:active {
-	background-color: darkred;
+	background-color: #ececef;
 }
 
 

@@ -37,7 +37,7 @@ def index():
                              u"<p class='grade'>{}</p>".format(grade) + \
                              u"<progress class='{}' value='{}' max='100'></progress>".format(grade, average) + \
                              u"<button class='details'>Details</button>" + \
-                             u"<div class='modal'><button class='modal-close'>x</button><div class='content'>{}</div></div>".format(grid)
+                             u"<div class='modal'><button class='modal-close'>&times;</button><div class='content'>{}</div></div>".format(grid)
 
             else:
                 courseHTML = u"<p class='name'>{}</p>".format(c) + \
