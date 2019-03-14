@@ -22,15 +22,17 @@ div.jumbo h1 {
 }
 
 div.course {
-	margin: 20px;
-	padding: 25px 25px;
+	margin: 1vw;
+	padding: 1vw 1vw;
 	border: 1px solid black;
-	border-radius: 10px;
+	border-radius: 5px;
 	width: 250px;
+	display: table;
 }
 
 div.course p.name {
 	font-weight: bold;
+	height: 3vw;
 }
 div.course p.score {
 	font-size: 1.8em;
@@ -44,6 +46,25 @@ div.course p.grade {
 	line-height: 0;
     margin: 50px 0;
 	text-align: center;
+}
+
+@media(max-width: 800px) {
+	div.course {
+		border: none;
+	}
+	div.course p.name {
+		height: auto;
+	}
+	div.course p.score {
+		float: left;
+		margin: 1vw 0;
+	}
+	div.course p.grade {
+		float: right;
+		font-size: 1.8em;
+		margin: 1vw 0;
+		line-height: 1em;
+	}
 }
 
 div.course progress[value]  {
