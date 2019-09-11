@@ -4,7 +4,7 @@ from bs4 import BeautifulSoup
 
 class Scraper:
     def __init__(self, username, password):
-        self.database = 1160
+        self.database = 1150
         self.username = username
         self.password = password
 
