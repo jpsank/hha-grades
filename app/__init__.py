@@ -14,7 +14,7 @@ if not app.debug and not app.testing:
     logs_path = os.path.join(basedir, 'logs')
     if not os.path.exists(logs_path):
         os.mkdir(logs_path)
-    handler = RotatingFileHandler(os.path.join(logs_path, 'maps.log'), maxBytes=10240, backupCount=1)
+    handler = RotatingFileHandler(os.path.join(logs_path, 'grades.log'), maxBytes=10240, backupCount=1)
     app.logger.addHandler(handler)
 
     app.logger.setLevel(logging.WARNING)
