@@ -1,10 +1,14 @@
 
-$(".course .details").click(function(event) {
-    let modals = $('.modal');
-    modals.css('display', 'none');
-    $(event.target.parentElement).find(modals).css('display', 'block');
-});
+function toggleModal(button) {
+    let modal = button.parentElement.querySelector(".modal");
+    if (modal.style.display === 'none') {
+        modal.style.display = '';
+    } else {
+        modal.style.display = 'none';
+    }
+}
 
-$(".modal-close").click(function (event) {
-    $(event.target.parentElement).css('display', 'none');
-});
+function closeModal(button) {
+    let modal = button.parentElement;
+    modal.style.display = 'none';
+}

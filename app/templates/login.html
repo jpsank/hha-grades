@@ -1,17 +1,6 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}" />
-    <title>Login - HHA ESchool</title>
-</head>
-<body>
+{% extends "base.html" %}
 
-    <div class="jumbo">
-        <img src="{{ url_for('static', filename='img/crest.png') }}" />
-        <h1>Haas Hall Academy</h1>
-    </div>
+{% block content %}
 
     <form id="login" method="POST">
         <p class="message">{{ message }}</p>
@@ -25,9 +14,4 @@
         <input type="submit" value="Login">
     </form>
 
-    <footer>
-        <p>puffyboa.xyz is not officially affiliated with Haas Hall Academy.</p>
-    </footer>
-
-</body>
-</html>
+{% endblock %}

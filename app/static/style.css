@@ -15,7 +15,7 @@ div.jumbo h1 {
 	margin-top: 10px;
 }
 
-#main {
+section.courses {
 	display: flex;
 	flex-wrap: wrap;
 	justify-content: center;
@@ -24,58 +24,50 @@ div.jumbo h1 {
 div.course {
 	margin: 1vw;
 	padding: 1vw 1vw;
-	border: 1px solid black;
 	border-radius: 5px;
 	width: 250px;
-	display: table;
+}
+
+div.course div.info {
+	background-color: whitesmoke;
+	padding: 1vw;
 }
 
 div.course p.name {
-	font-weight: bold;
-	height: 3vw;
+	margin: 10px 0;
 }
 div.course p.score {
 	font-size: 1.8em;
 	text-align: center;
-	margin: 20px 0;
-	border-top: 1px solid black;
-	border-bottom: 1px solid black;
+	float: left;
+	margin: 1vw 0;
 }
 div.course p.grade {
-	font-size: 4em;
-	line-height: 0;
-    margin: 50px 0;
 	text-align: center;
+	float: right;
+	font-size: 1.8em;
+	margin: 1vw 0;
+	line-height: 1em;
+}
+
+div.course p.na {
+	font-size: 1.8em;
+	margin: 0;
+	padding: 0;
 }
 
 @media(max-width: 800px) {
-	div.course {
-		border: none;
-	}
-	div.course p.name {
-		height: auto;
-	}
-	div.course p.score {
-		float: left;
-		margin: 1vw 0;
-	}
-	div.course p.grade {
-		float: right;
-		font-size: 1.8em;
-		margin: 1vw 0;
-		line-height: 1em;
-	}
+
 }
 
 div.course progress[value]  {
 	border: 1px solid black;
-	border-radius: 3px;
+	border-radius: 2px;
 
-	background-color: whiteSmoke;
-	box-shadow: 0 2px 3px rgba(0,0,0,.5) inset;
+	background-color: whitesmoke;
 
 	width: 100%;
-	height: 16px;
+	height: 20px;
 }
 div.course progress[value]::-webkit-progress-bar {
     background-color: transparent;
@@ -91,25 +83,23 @@ div.course progress.C::-webkit-progress-value {background-color: yellow;}
 div.course progress.D::-webkit-progress-value {background-color: orange;}
 div.course progress.F::-webkit-progress-value {background-color: red;}
 
-div.course .details {
+div.course button.details {
 	display: block;
 	outline: none;
+	border: none;
+	width: 60px;
 	background-color: white;
-	margin: 15px auto 0 auto;
+	margin-top: 10px;
 }
-div.course .details:active {
+div.course button.details:hover {
 	background-color: lightgrey;
 }
-
-div.course p.na {
-	font-size: 4em;
-	line-height: 0;
-	margin: 110px 0;
-	text-align: center;
+div.course button.details:active {
+	background-color: grey;
 }
 
+
 .modal {
-	display: none;
 	position: fixed;
 	z-index: 1;
 	left: 0;
@@ -142,6 +132,7 @@ div.course p.na {
 .modal-close:active {
 	background-color: #ffe1e1;
 }
+
 
 
 footer {

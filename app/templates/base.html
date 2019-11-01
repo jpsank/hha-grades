@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>{% if title %}{{ title }} - {% endif %}HHA ESchool</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+
+    <div class="jumbo">
+        <img alt src="{{ url_for('static', filename='img/crest.png') }}" />
+        <h1>Haas Hall Academy</h1>
+    </div>
+
+    {% block content %}
+    {% endblock %}
+
+    <footer>
+        <p>puffyboa.xyz is not officially affiliated with Haas Hall Academy.</p>
+    </footer>
+
+
+</body>
+</html>

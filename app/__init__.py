@@ -1,60 +1,24 @@
-from app import scraper
+import os
+
 from flask import Flask, render_template, request
+import logging
+from logging.handlers import RotatingFileHandler
+
+from config import Config, basedir
+
 
 app = Flask(__name__, static_url_path="/hha-grades/app/static")
+app.config.from_object(Config)
+
+if not app.debug and not app.testing:
+    logs_path = os.path.join(basedir, 'logs')
+    if not os.path.exists(logs_path):
+        os.mkdir(logs_path)
+    handler = RotatingFileHandler(os.path.join(logs_path, 'maps.log'), maxBytes=10240, backupCount=1)
+    app.logger.addHandler(handler)
+
+    app.logger.setLevel(logging.WARNING)
+    app.logger.info('HHA Grades startup')
 
 
-@app.route("/", methods=['GET', 'POST'])
-def index():
-    if request.method == 'POST':
-        username = request.form.get('username')
-        password = request.form.get('password')
-        sc = scraper.Scraper(username, password)
-        courseData = sc.get()
-        if len(courseData) == 0:
-            return render_template('login.html', message=u"Invalid username or password")
-
-        mainHTML = u"<section id='main'>"
-
-        for c in courseData:
-            grid = courseData[c]['grid'].decode()
-            average = courseData[c]['average']
-
-            if average:
-                if average < 60:
-                    grade = u'F'
-                elif average < 70:
-                    grade = u'D'
-                elif average < 80:
-                    grade = u'C'
-                elif average < 90:
-                    grade = u'B'
-                else:
-                    grade = u'A'
-
-                courseHTML = u"<p class='name'>{}</p>".format(c) + \
-                             u"<p class='score'>{}%</p>".format(average) + \
-                             u"<p class='grade'>{}</p>".format(grade) + \
-                             u"<progress class='{}' value='{}' max='100'></progress>".format(grade, average) + \
-                             u"<button class='details'>Details</button>" + \
-                             u"<div class='modal'><button class='modal-close'>&times;</button><div class='content'>{}</div></div>".format(grid)
-
-            else:
-                courseHTML = u"<p class='name'>{}</p>".format(c) + \
-                             u"<p class='na'>N/A</p>" + \
-                             u"<button class='details'>Details</button>" + \
-                             u"<div class='modal'><button class='modal-close'>x</button><div class='content'>{}</div></div>".format(grid)
-
-
-
-            mainHTML += u"<div class='course'>{}</div>".format(courseHTML)
-
-        mainHTML += u"</section>"
-
-        return render_template('index.html', main=mainHTML)
-    else:
-        return render_template('login.html')
-
-
-if __name__ == '__main__':
-    app.run(host="0.0.0.0", threaded=True)
+from app import routes

@@ -1,25 +1,31 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}" />
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-    <title>Home - HHA ESchool</title>
-</head>
-<body>
-<div class="jumbo">
-    <img src="{{ url_for('static', filename='img/crest.png') }}" />
-    <h1>Haas Hall Academy</h1>
-</div>
+{% extends "base.html" %}
 
-{{ main|safe }}
+{% block content %}
 
-<footer>
-    <p>puffyboa.xyz is not officially affiliated with Haas Hall Academy.</p>
-</footer>
+    <section class="courses">
+        {% for course in courses %}
+            <div class="course">
+                <p class='name'>{{ course.name }}</p>
+                <div class="info">
+                    {% if course.has_grade %}
+                        <p class='score'>{{ course.average }}%</p>
+                        <p class='grade'>{{ course.grade }}</p>
+                        <progress class='{{ course.grade }}' value='{{ course.average }}' max='100'></progress>
+                        <div>
+                            <button class='details' onclick="toggleModal(this)">Details</button>
+                            <div class='modal' style="display: none;">
+                                <button class='modal-close' onclick="closeModal(this)">&times;</button>
+                                <div class='content'>{{ course.grid|safe }}</div>
+                            </div>
+                        </div>
+                    {% else %}
+                        <p class='na'>N/A</p>
+                    {% endif %}
+                </div>
+            </div>
+        {% endfor %}
+    </section>
 
-<script src="{{ url_for('static', filename='script.js') }}"></script>
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
 
-</body>
-</html>
+{% endblock %}
