@@ -1,10 +1,21 @@
 import os
 
+import sentry_sdk
+from sentry_sdk.integrations.flask import FlaskIntegration
+from sentry_sdk.integrations.sqlalchemy import SqlalchemyIntegration
+
 from flask import Flask, render_template, request
 import logging
 from logging.handlers import RotatingFileHandler
 
 from config import Config, basedir
+
+
+if Config.SENTRY_DSN:
+    sentry_sdk.init(
+        dsn=Config.SENTRY_DSN,
+        integrations=[FlaskIntegration(), SqlalchemyIntegration()]
+    )
 
 
 app = Flask(__name__, static_url_path="/hha-grades/app/static")
